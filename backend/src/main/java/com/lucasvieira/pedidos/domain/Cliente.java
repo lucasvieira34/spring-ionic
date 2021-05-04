@@ -35,6 +35,9 @@ public class Cliente {
     @CollectionTable(name = "TELEFONE")
     private Set<String> telefones = new HashSet<>();
 
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedidos = new ArrayList<>();
+
     public TipoCliente getTipo() {
         return TipoCliente.toEnum(tipo);
     }
