@@ -1,5 +1,6 @@
 package com.lucasvieira.pedidos.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.lucasvieira.pedidos.domain.enumeration.TipoCliente;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +27,7 @@ public class Cliente {
     private String cpfOuCnpj;
     private Integer tipo;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "cliente")
     private List<Endereco> enderecos = new ArrayList<>();
 
