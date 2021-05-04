@@ -1,6 +1,7 @@
 package com.lucasvieira.pedidos.service;
 
 import com.lucasvieira.pedidos.domain.Categoria;
+import com.lucasvieira.pedidos.exceptions.ObjectNotFoundException;
 import com.lucasvieira.pedidos.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,10 @@ public class CategoriaService {
 
     public Categoria buscar(Integer id) {
         Optional<Categoria> obj = repository.findById(id);
-        return obj.orElse(null);
+        return obj.orElseThrow(() -> new ObjectNotFoundException(
+                        "Objeto não encontrado! ID: " + id + ", TIPO: " + Categoria.class.getName()
+        ));
+
     }
 
 }

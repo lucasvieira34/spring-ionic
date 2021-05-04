@@ -1,5 +1,6 @@
 package com.lucasvieira.pedidos.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,6 +25,7 @@ public class Produto {
 
     private Double preco;
 
+    @JsonBackReference
     @ManyToMany
     @JoinTable(name = "PRODUTO_CATEGORIA",
                joinColumns = @JoinColumn(name = "produto_id"),
