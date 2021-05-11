@@ -31,6 +31,11 @@ public class Categoria {
         return result;
     }
 
+    public Categoria(Integer id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

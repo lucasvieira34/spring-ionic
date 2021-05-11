@@ -1,6 +1,7 @@
 package com.lucasvieira.pedidos.service;
 
 import com.lucasvieira.pedidos.domain.Categoria;
+import com.lucasvieira.pedidos.dto.CategoriaDTO;
 import com.lucasvieira.pedidos.exceptions.DataIntegrityException;
 import com.lucasvieira.pedidos.exceptions.ObjectNotFoundException;
 import com.lucasvieira.pedidos.repository.CategoriaRepository;
@@ -54,5 +55,9 @@ public class CategoriaService {
     public Page<Categoria> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
         PageRequest pageRequest = PageRequest.of(page, linesPerPage, Sort.Direction.valueOf(direction), orderBy);
         return repository.findAll(pageRequest);
+    }
+
+    public Categoria fromDTO(CategoriaDTO objDto) {
+        return new Categoria(objDto.getId(), objDto.getNome());
     }
 }
