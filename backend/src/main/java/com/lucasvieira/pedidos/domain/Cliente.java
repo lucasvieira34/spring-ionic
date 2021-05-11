@@ -48,7 +48,7 @@ public class Cliente {
         this.nome = nome;
         this.email = email;
         this.cpfOuCnpj = cpfOuCnpj;
-        this.tipo = tipo.getCodigo();
+        this.tipo = (tipo==null) ? null :tipo.getCodigo();
     }
 
     @Override
