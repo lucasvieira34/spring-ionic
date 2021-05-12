@@ -1,6 +1,7 @@
 package com.lucasvieira.pedidos.dto;
 
 import com.lucasvieira.pedidos.domain.Cliente;
+import com.lucasvieira.pedidos.service.validation.ClienteUpdate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import javax.validation.constraints.NotEmpty;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ClienteUpdate
 public class ClienteDTO {
 
     private Integer id;
